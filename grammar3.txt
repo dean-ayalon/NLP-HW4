@@ -1,0 +1,206 @@
+# Symbols in the grammar are case-sensitive.
+#
+# This grammar uses a convention that
+#    - terminals are lowercase          (president)
+#    - preterminals are capitalized     (Noun)
+#    - other nonterminals are all-caps  (NP)
+#
+# This convention just makes grammars more readable to humans.  Thus:
+#
+#    - When *you* are writing grammars, you should
+#      follow this convention unless you have a good reason not to.
+#
+#    - But the  *program* should still work with grammars that don't
+#      follow this convention.  So how can the program reliably tell
+#      the difference between terminal and nonterminal symbols?  If
+#      there is at least one rule for rewriting a symbol, then that
+#      symbol is a nonterminal and should be rewritten.
+#######################
+
+# Rules for creating full sentences.
+
+1	ROOT	S .
+1	ROOT	S !
+1	ROOT	is it true that S ?     # mixing terminals and nonterminals is ok.
+
+# The basic grammar rules.  Here's what the abbreviations stand for:
+#    S  = sentence
+#    NP = noun phrase
+#    VP = verb phrase
+#    PP = prepositional phrase
+#    Det = determiner (sometimes called "article")
+#    Prep = preposition
+#    Adj = adjective
+
+
+1   CP  Comp S
+1	S	NPS VPS
+1   S   NPP VPP
+1   S   NPS I-Bar-s
+1   S   NPP I-Bar-p
+1   S   NP-Exp  VP-Exp
+1	VPS	V-Trans-s NP
+1	VPP	V-Trans-p NP
+1   VPS  V-Intrans-s
+1   VPP  V-Intrans-p
+0.1   VPS  VPS Conj VPS
+0.1   VPP  VPP Conj VPP
+1   VPS  V-Comp-s CP
+1   VPP  V-Comp-p CP
+1   VPS  V-Trans-1-s PP
+1   VPP  V-Trans-1-p PP
+1   VPS  VPS PP
+1   VPP  VPP PP
+1   VP-Exp  V-Exp NP CP
+
+1   I-Bar-s   I-s VP-Ger-s
+1   I-Bar-p   I-p VP-Ger-p
+
+1   NP  NPP
+1   NP  NPS
+1   NPP   Det-p N-Bar-p
+0.1   NPP  NP Conj NP
+0.5	NPP	NPP PP
+0.5	NPS	NPS PP
+1   NPS   Det-s N-Bar-s
+
+
+
+
+1	PP	Prep NP
+0.1   N-Bar-s   Adj N-Bar-s
+0.1   N-Bar-p   Adj N-Bar-p
+1   N-Bar-s   Noun-s
+1   N-Bar-p   Noun-p
+0.1   N-Bar-s   Adv Adj N-Bar-s
+0.1   N-Bar-p   Adv Adj N-Bar-p
+
+
+0.1   V-Trans-s      V-Trans-s Conj V-Trans-s
+0.1   V-Trans-p      V-Trans-p Conj V-Trans-p
+0.1   V-Intrans-s   V-Intrans-s Conj V-Intrans-s
+0.1   V-Intrans-p   V-Intrans-p Conj V-Intrans-p
+
+
+1   VP-Ger-s  Adj
+1   VP-Ger-p  Adj
+1   VP-Ger-s  NPS
+1   VP-Ger-p  NPP
+1   VP-Ger-s  V-Ger-Trans NP
+1   VP-Ger-p  V-Ger-Trans NP
+1   VP-Ger-s  V-Ger-Intrans
+1   VP-Ger-p  V-Ger-Intrans
+1   VP-Ger-s  V-Ger-Trans-1 PP
+1   VP-Ger-p  V-Ger-Trans-1 PP
+0.1   VP-Ger-s  VP-Ger-s Conj VP-Ger-s
+0.1   VP-Ger-p  VP-Ger-p Conj VP-Ger-p
+1   VP-Ger-s  VP-Ger-s PP
+1   VP-Ger-p  VP-Ger-p PP
+
+
+
+
+# Vocabulary.  Your program can see that "ate" is a terminal
+# symbol because there exists no rule for rewriting it.
+# Any symbol that can rewrite as a terminal (or a string of
+# terminals, like "chief of staff") is called a "preterminal."  Notice
+# that a preterminal is a special kind of nonterminal.
+
+0.1   NP      Sally
+
+1   V-Trans-s   eats
+1   V-Trans-s   wants
+1   V-Trans-s   kisses
+1   V-Trans-s   understands
+1   V-Trans-s   pickles
+
+1	V-Trans-p	kiss
+1	V-Trans-p	want
+1	V-Trans-p	eat
+1	V-Trans-p	understand
+1	V-Trans-p	pickle
+
+
+1   V-Trans-1-s works
+1   V-Trans-1-p work
+
+
+1   V-Comp-s  thinks
+1   V-Comp-p  think
+
+1   V-Intrans-s   sighs
+1   V-Intrans-p   sigh
+
+1   NP-Exp  it
+
+1   V-Exp   puzzles
+1   V-Exp   perplexes
+1   V-Exp   surprises
+
+
+1   V-Ger-Intrans sleeping
+1   V-Ger-Intrans swimming
+
+1   V-Ger-Trans eating
+1   V-Ger-Trans-1 working
+
+
+1	Det-s	the
+1	Det-s	a
+1	Det-s	every
+1   Det-p   the
+
+1   Conj    or
+1   Conj    and
+
+1   I-s   is
+1   I-s   was
+1   I-p   are
+1   I-p   were
+
+1   Noun-s	president
+1	Noun-s	sandwich
+1	Noun-s	pickle
+1	Noun-s	chief
+1	Noun-s 	floor
+1   Noun-s  desk
+1   Noun-s  proposal
+1   Noun-s  staff
+
+1   Noun-p  presidents
+1   Noun-p  sandwiches
+1   Noun-p  pickles
+1   Noun-p  chiefs
+1   Noun-p  floors
+1   Noun-p  desks
+1   Noun-p  proposals
+
+
+1	Adj	fine
+1	Adj	delicious
+1	Adj	perplexed
+1	Adj	pickled
+1   Adj lazy
+
+1   Adv very
+0.1   Adv very Adv
+
+1	Prep	with
+1	Prep	on
+1	Prep	under
+1	Prep	in
+1   Prep    of
+
+1   Comp    that
+
+
+
+
+
+
+
+
+
+
+
+
