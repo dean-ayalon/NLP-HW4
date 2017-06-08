@@ -34,87 +34,79 @@
 
 
 1   CP  Comp S
-
 1	S	NPS VPS
-1   S   NPS I-Bar-s
 1   S   NPP VPP
+1   S   NPS I-Bar-s
 1   S   NPP I-Bar-p
 1   S   NP-Exp  VP-Exp
+1	VPS	V-Trans-s NP
+1	VPP	V-Trans-p NP
+1   VPS  V-Intrans-s
+1   VPP  V-Intrans-p
+0.1   VPS  VPS Conj VPS
+0.1   VPP  VPP Conj VPP
+1   VPS  V-Comp-s CP
+1   VPP  V-Comp-p CP
+1   VPS  V-Trans-1-s PP
+1   VPP  V-Trans-1-p PP
+1   VPS  VPS PP
+1   VPP  VPP PP
+1   VP-Exp  V-Exp NP CP
 
 1   I-Bar-s   I-s VP-Ger-s
 1   I-Bar-p   I-p VP-Ger-p
 
-1	VPS	V-Trans-s NP
-1   VPS  V-Intrans-s
-0.1   VPS  VPS Conj VPS
-1   VPS  V-Comp-s CP
-1   VPS  V-Trans-1-s PP
-1   VPS  VPS PP
-
-1	VPP	V-Trans-p NP
-1   VPP  V-Intrans-p
-0.1   VPP  VPP Conj VPP
-1   VPP  V-Comp-p CP
-1   VPP  V-Trans-1-p PP
-1   VPP  VPP PP
-
-1   VP-Exp  V-Exp NP CP
-
-1   VP-Ger-s  Adj
-1   VP-Ger-s  NPS
-1   VP-Ger-s  V-Ger-Trans NP
-1   VP-Ger-s  V-Ger-Intrans
-1   VP-Ger-s  V-Ger-Trans-1 PP
-0.1   VP-Ger-s  VP-Ger-s Conj VP-Ger-s
-1   VP-Ger-s  VP-Ger-s PP
-1   VP-Ger-p  Adj
-1   VP-Ger-p  NPP
-1   VP-Ger-p  V-Ger-Trans NP
-1   VP-Ger-p  V-Ger-Intrans
-1   VP-Ger-p  V-Ger-Trans-1 PP
-0.1   VP-Ger-p  VP-Ger-p Conj VP-Ger-p
-1   VP-Ger-p  VP-Ger-p PP
-
-0.1   V-Trans-s      V-Trans-s Conj V-Trans-s
-0.1   V-Intrans-s   V-Intrans-s Conj V-Intrans-s
-0.1   V-Trans-p      V-Trans-p Conj V-Trans-p
-0.1   V-Intrans-p   V-Intrans-p Conj V-Intrans-p
-
 1   NP  NPP
 1   NP  NPS
-0.1   NP NP RC-OBJ
-0.05   NP  NP  EMB-RC-OBJ
-0.1	NPS	NPS PP
-1   NPS Det-s N-Bar-s
-0.1   NPS NPS RC-SUB-S
 1   NPP   Det-p N-Bar-p
 0.1   NPP  NP Conj NP
-0.1	NPP	NPP PP
-0.1   NPP NPP RC-SUB-P
+0.5	NPP	NPP PP
+0.5	NPS	NPS PP
+1   NPS   Det-s N-Bar-s
 
-0.1   N-Bar-s   Adj N-Bar-s
-1   N-Bar-s   Noun-s
-0.1   N-Bar-s   Adv Adj N-Bar-s
-0.1   N-Bar-p   Adj N-Bar-p
-1   N-Bar-p   Noun-p
-0.1   N-Bar-p   Adv Adj N-Bar-p
-0.1   Adv very Adv
 
-1   RC-SUB-S    Comp    VPS
-1   RC-SUB-P    Comp    VPP
-1   RC-OBJ  Comp    NPS V-Trans-s
-1   RC-OBJ  Comp    NPP V-Trans-p
-0.1   EMB-RC-OBJ  Comp    NPS V-Comp-s    EMB-RC-OBJ
-0.1   EMB-RC-OBJ  Comp    NPP V-Comp-p    EMB-RC-OBJ
-1   EMB-RC-OBJ  RC-OBJ
+
 
 1	PP	Prep NP
+0.1   N-Bar-s   Adj N-Bar-s
+0.1   N-Bar-p   Adj N-Bar-p
+1   N-Bar-s   Noun-s
+1   N-Bar-p   Noun-p
+0.1   N-Bar-s   Adv Adj N-Bar-s
+0.1   N-Bar-p   Adv Adj N-Bar-p
+
+
+0.1   V-Trans-s      V-Trans-s Conj V-Trans-s
+0.1   V-Trans-p      V-Trans-p Conj V-Trans-p
+0.1   V-Intrans-s   V-Intrans-s Conj V-Intrans-s
+0.1   V-Intrans-p   V-Intrans-p Conj V-Intrans-p
+
+
+1   VP-Ger-s  Adj
+1   VP-Ger-p  Adj
+1   VP-Ger-s  NPS
+1   VP-Ger-p  NPP
+1   VP-Ger-s  V-Ger-Trans NP
+1   VP-Ger-p  V-Ger-Trans NP
+1   VP-Ger-s  V-Ger-Intrans
+1   VP-Ger-p  V-Ger-Intrans
+1   VP-Ger-s  V-Ger-Trans-1 PP
+1   VP-Ger-p  V-Ger-Trans-1 PP
+0.1   VP-Ger-s  VP-Ger-s Conj VP-Ger-s
+0.1   VP-Ger-p  VP-Ger-p Conj VP-Ger-p
+1   VP-Ger-s  VP-Ger-s PP
+1   VP-Ger-p  VP-Ger-p PP
+
+
+
 
 # Vocabulary.  Your program can see that "ate" is a terminal
 # symbol because there exists no rule for rewriting it.
 # Any symbol that can rewrite as a terminal (or a string of
 # terminals, like "chief of staff") is called a "preterminal."  Notice
 # that a preterminal is a special kind of nonterminal.
+
+0.1   NP      Sally
 
 1   V-Trans-s   eats
 1   V-Trans-s   wants
@@ -128,31 +120,30 @@
 1	V-Trans-p	understand
 1	V-Trans-p	pickle
 
+
 1   V-Trans-1-s works
 1   V-Trans-1-p work
 
+
 1   V-Comp-s  thinks
-1   V-Comp-s    knows
 1   V-Comp-p  think
-1   V-Comp-p    know
 
 1   V-Intrans-s   sighs
-1   V-Intrans-s sleeps
 1   V-Intrans-p   sigh
-1   V-Intrans-p sleep
 
-0.1   NP      Sally
 1   NP-Exp  it
 
 1   V-Exp   puzzles
 1   V-Exp   perplexes
 1   V-Exp   surprises
 
+
 1   V-Ger-Intrans sleeping
 1   V-Ger-Intrans swimming
 
 1   V-Ger-Trans eating
 1   V-Ger-Trans-1 working
+
 
 1	Det-s	the
 1	Det-s	a
@@ -184,6 +175,7 @@
 1   Noun-p  desks
 1   Noun-p  proposals
 
+
 1	Adj	fine
 1	Adj	delicious
 1	Adj	perplexed
@@ -191,6 +183,7 @@
 1   Adj lazy
 
 1   Adv very
+0.1   Adv very Adv
 
 1	Prep	with
 1	Prep	on

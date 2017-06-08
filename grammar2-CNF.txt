@@ -34,45 +34,50 @@
 
 
 1   CP  Comp S
+
 1	S	NP VP
 1   S   NP I-Bar
 1   S   NP-Exp  VP-Exp
-1	VP	V-Trans NP
-1   VP  V-Intrans
-0.1   VP  VP Conj VP
-1   VP  V-Comp CP
-1   VP  V-Trans-1 PP
-1   VP  VP PP
 
 1   I-Bar   I VP-Ger
 
-
-1   NP   Det N-Bar
-0.5	NP	NP PP
-1	PP	Prep NP
-0.1   N-Bar   Adj N-Bar
-1   N-Bar   Noun
-0.1   N-Bar   Adv Adj N-Bar
-
-0.1   NP  NP Conj NP
-
-0.1   V-Trans      V-Trans Conj V-Trans
-0.1   V-Intrans   V-Intrans Conj V-Intrans
-
-1   V-Exp   puzzled
-1   V-Exp   perplexed
-1   V-Exp   surprised
+1	VP	V-Trans NP
+1   VP  V-Intrans
+0.1   VP  VP X1
+1   X1   Conj VP
+1   VP  V-Comp CP
+1   VP  V-Trans-1 PP
+1   VP  VP PP
 
 1   VP-Ger  Adj
 1   VP-Ger  NP
 1   VP-Ger  V-Ger-Trans NP
 1   VP-Ger  V-Ger-Intrans
 1   VP-Ger  V-Ger-Trans-1 PP
-0.1   VP-Ger  VP-Ger Conj VP-Ger
+0.1   VP-Ger  VP-Ger X2
+1   X2  Conj VP-Ger
 1   VP-Ger  VP-Ger PP
 
-1   VP-Exp  V-Exp NP CP
+1   VP-Exp  V-Exp X3
+1   X3  NP CP
 
+0.1   V-Trans      V-Trans X4
+1   X4  Conj V-Trans
+0.1   V-Intrans   V-Intrans X5
+1   X5  Conj V-Intrans
+
+1   NP   Det N-Bar
+0.5	NP	NP PP
+0.1   NP  NP Conj NP
+
+0.1   N-Bar   Adj N-Bar
+1   N-Bar   Noun
+0.1   N-Bar   Adv X6
+1   X6  Adj N-Bar
+
+0.1   Adv very Adv
+
+1	PP	Prep NP
 
 # Vocabulary.  Your program can see that "ate" is a terminal
 # symbol because there exists no rule for rewriting it.
@@ -81,6 +86,7 @@
 # that a preterminal is a special kind of nonterminal.
 
 0.1   NP      Sally
+1   NP-Exp  it
 
 1	V-Trans	ate
 1	V-Trans	wanted
@@ -90,23 +96,19 @@
 
 1   V-Trans-1 worked
 
-
 1   V-Comp  thought
 
 1   V-Intrans   sighed
 
-1   NP-Exp  it
-
-
-
-
+1   V-Exp   puzzled
+1   V-Exp   perplexed
+1   V-Exp   surprised
 
 1   V-Ger-Intrans sleeping
 1   V-Ger-Intrans swimming
 
 1   V-Ger-Trans eating
 1   V-Ger-Trans-1 working
-
 
 1	Det	the
 1	Det	a
@@ -121,7 +123,8 @@
 1	Noun	president
 1	Noun	sandwich
 1	Noun	pickle
-1	Noun	chief of staff
+1	Noun	chief
+1   Noun    staff
 1	Noun	floor
 1   Noun    desk
 1   Noun    proposal
@@ -133,11 +136,11 @@
 1   Adj lazy
 
 1   Adv very
-0.1   Adv very Adv
 
 1	Prep	with
 1	Prep	on
 1	Prep	under
 1	Prep	in
+1   Prep    of
 
 1   Comp    that
