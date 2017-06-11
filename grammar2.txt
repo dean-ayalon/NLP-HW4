@@ -19,9 +19,9 @@
 
 # Rules for creating full sentences.
 
-1	ROOT	S .
-1	ROOT	S !
-1	ROOT	is it true that S ?     # mixing terminals and nonterminals is ok.
+1	ROOT	S P
+1	ROOT	S EXC
+1	ROOT	I NP-Exp Adj Comp S QM
 
 # The basic grammar rules.  Here's what the abbreviations stand for:
 #    S  = sentence
@@ -41,9 +41,9 @@
 
 1   I-Bar   I VP-Ger
 
-1	VP	V-Trans NP
+1   VP  V-Trans NP
 1   VP  V-Intrans
-0.1   VP  VP Conj VP
+0.1 VP  VP Conj VP
 1   VP  V-Comp CP
 1   VP  V-Trans-1 PP
 1   VP  VP PP
@@ -53,25 +53,26 @@
 1   VP-Ger  V-Ger-Trans NP
 1   VP-Ger  V-Ger-Intrans
 1   VP-Ger  V-Ger-Trans-1 PP
-0.1   VP-Ger  VP-Ger Conj VP-Ger
+0.1 VP-Ger  VP-Ger Conj VP-Ger
 1   VP-Ger  VP-Ger PP
 
 1   VP-Exp  V-Exp NP CP
 
-0.1   V-Trans      V-Trans Conj V-Trans
-0.1   V-Intrans   V-Intrans Conj V-Intrans
+0.1 V-Trans     V-Trans     Conj    V-Trans
+0.1 V-Intrans   V-Intrans   Conj    V-Intrans
 
-1   NP   Det N-Bar
+1   NP  Det N-Bar
 0.5	NP	NP PP
-0.1   NP  NP Conj NP
+0.1 NP  NP Conj NP
 
-0.1   N-Bar   Adj N-Bar
+0.1 N-Bar   Adj N-Bar
 1   N-Bar   Noun
-0.1   N-Bar   Adv Adj N-Bar
+0.1 N-Bar   AdvP Adj N-Bar
 
-0.1   Adv very Adv
+0.1 AdvP    Adv AdvP
+1   AdvP    Adv
 
-1	PP	Prep NP
+1   PP	Prep NP
 
 # Vocabulary.  Your program can see that "ate" is a terminal
 # symbol because there exists no rule for rewriting it.
@@ -79,7 +80,7 @@
 # terminals, like "chief of staff") is called a "preterminal."  Notice
 # that a preterminal is a special kind of nonterminal.
 
-0.1   NP      Sally
+0.1 NP      Sally
 1   NP-Exp  it
 
 1	V-Trans	ate
@@ -127,6 +128,7 @@
 1	Adj	perplexed
 1	Adj	pickled
 1   Adj lazy
+1   Adj true
 
 1   Adv very
 
@@ -136,3 +138,7 @@
 1	Prep	in
 
 1   Comp    that
+
+1   P   .
+1   EXC !
+1   QM  ?

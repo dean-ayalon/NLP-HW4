@@ -51,7 +51,7 @@
 1	Verb	understood
 1	Verb	pickled
 
-1	Det	the
+1	Det the
 1	Det	a
 1	Det	every
 
