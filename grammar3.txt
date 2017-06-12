@@ -48,21 +48,21 @@
 1   VPS V-Intrans-s
 0.1 VPS VPS Conj VPS
 1   VPS V-Comp-s CP
-1   VPS V-Trans-1-s PP
+1   VPS V-Trans-1-s PP-1
 1   VPS VPS PP
 
 1	VPP V-Trans-p NP
 1   VPP V-Intrans-p
 0.1 VPP VPP Conj VPP
 1   VPP V-Comp-p CP
-1   VPP V-Trans-1-p PP
+1   VPP V-Trans-1-p PP-1
 1   VPP VPP PP
 
 1   VP-Ger-s  Adj
 1   VP-Ger-s  NPS
 1   VP-Ger-s  V-Ger-Trans NP
 1   VP-Ger-s  V-Ger-Intrans
-1   VP-Ger-s  V-Ger-Trans-1 PP
+1   VP-Ger-s  V-Ger-Trans-1 PP-1
 0.1 VP-Ger-s  VP-Ger-s Conj VP-Ger-s
 1   VP-Ger-s  VP-Ger-s PP
 
@@ -70,7 +70,7 @@
 1   VP-Ger-p  NPP
 1   VP-Ger-p  V-Ger-Trans   NP
 1   VP-Ger-p  V-Ger-Intrans
-1   VP-Ger-p  V-Ger-Trans-1 PP
+1   VP-Ger-p  V-Ger-Trans-1 PP-1
 0.1 VP-Ger-p  VP-Ger-p  Conj VP-Ger-p
 1   VP-Ger-p  VP-Ger-p  PP
 
@@ -116,6 +116,8 @@
 1   EMB-RC-OBJ  RC-OBJ
 
 1	PP	Prep NP
+1   PP-1    Prep-1  NP
+0.1 PP  UC-Prep UC-NP
 
 # Vocabulary.  Your program can see that "ate" is a terminal
 # symbol because there exists no rule for rewriting it.
@@ -204,6 +206,16 @@
 1	Prep	under
 1	Prep	in
 1   Prep    of
+1	Prep-1	on
+1	Prep-1	with
+1	Prep-1	under
+1	Prep-1	in
+
+1   UC-Prep of
+
+1   UC-NP   staff
+1   UC-NP   water
+1   UC-NP   sand
 
 1   Comp    that
 
