@@ -49,14 +49,14 @@
 0.1 VP  VP X5
 1   X5   Conj VP
 1   VP  V-Comp CP
-1   VP  V-Trans-1 PP
+1   VP  V-Trans-1 PP-1
 1   VP  VP PP
 
 1   VP-Ger  Adj
 1   VP-Ger  NP
 1   VP-Ger  V-Ger-Trans NP
 1   VP-Ger  V-Ger-Intrans
-1   VP-Ger  V-Ger-Trans-1   PP
+1   VP-Ger  V-Ger-Trans-1   PP-1
 0.1 VP-Ger  VP-Ger  X6
 1   X6      Conj    VP-Ger
 1   VP-Ger  VP-Ger  PP
@@ -84,6 +84,7 @@
 
 1	PP	Prep NP
 0.1 PP  UC-Prep UC-NP
+1   PP-1    Prep-1  NP
 
 # Vocabulary.  Your program can see that "ate" is a terminal
 # symbol because there exists no rule for rewriting it.
@@ -149,6 +150,11 @@
 1	Prep	under
 1	Prep	in
 1   Prep    of
+
+1	Prep-1	on
+1	Prep-1	with
+1	Prep-1	under
+1	Prep-1	in
 
 1   UC-Prep of
 
