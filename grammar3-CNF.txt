@@ -147,7 +147,7 @@
 # terminals, like "chief of staff") is called a "preterminal."  Notice
 # that a preterminal is a special kind of nonterminal.
 
-0.1 NP      Sally
+0.1 NPS      Sally
 1   NP-Exp  it
 
 1   V-Trans-s   eats
@@ -155,29 +155,62 @@
 1   V-Trans-s   kisses
 1   V-Trans-s   understands
 1   V-Trans-s   pickles
+1   V-Trans-s   chooses
 
 1	V-Trans-p	kiss
 1	V-Trans-p	want
 1	V-Trans-p	eat
 1	V-Trans-p	understand
 1	V-Trans-p	pickle
+1	V-Trans-p	choose
+
+1   V-Trans-s   ate
+1   V-Trans-s   wanted
+1   V-Trans-s   kissed
+1   V-Trans-s   understood
+1   V-Trans-s   pickled
+1   V-Trans-s   chose
+
+1	V-Trans-p	kissed
+1	V-Trans-p	wanted
+1	V-Trans-p	ate
+1	V-Trans-p	understood
+1	V-Trans-p	pickled
+1	V-Trans-p	chose
 
 1   V-Trans-1-s works
 1   V-Trans-1-p work
+
+1   V-Trans-1-s worked
+1   V-Trans-1-p worked
 
 1   V-Comp-s    thinks
 1   V-Comp-s    knows
 1   V-Comp-p    think
 1   V-Comp-p    know
 
+1   V-Comp-s    thought
+1   V-Comp-s    knew
+1   V-Comp-p    thought
+1   V-Comp-p    knew
+
 1   V-Intrans-s sighs
 1   V-Intrans-s sleeps
 1   V-Intrans-p sigh
 1   V-Intrans-p sleep
 
+1   V-Intrans-s sighed
+1   V-Intrans-s slept
+1   V-Intrans-p sighed
+1   V-Intrans-p slept
+
 1   V-Exp   puzzles
 1   V-Exp   perplexes
 1   V-Exp   surprises
+
+1   V-Exp   puzzled
+1   V-Exp   perplexed
+1   V-Exp   surprised
 
 1   V-Ger-Intrans sleeping
 1   V-Ger-Intrans swimming
@@ -206,6 +239,7 @@
 1   Noun-s  desk
 1   Noun-s  proposal
 1   Noun-s  staff
+1   Noun-s  citizen
 
 1   Noun-p  presidents
 1   Noun-p  sandwiches
@@ -214,6 +248,7 @@
 1   Noun-p  floors
 1   Noun-p  desks
 1   Noun-p  proposals
+1   Noun-p  citizens
 
 1	Adj	fine
 1	Adj	delicious
